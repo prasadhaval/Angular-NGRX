@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-registar',
@@ -8,5 +9,16 @@ import { Component } from '@angular/core';
   styleUrl: './registar.component.css'
 })
 export class RegistarComponent {
+  regiForm!: FormGroup
+  ngOnInit(): void {
+    this.regiForm = new FormGroup({
+      email: new FormControl(''),
+      password: new FormControl(''),
+    })
+    
+  }
 
+  submitForm(){
+    
+  }
 }

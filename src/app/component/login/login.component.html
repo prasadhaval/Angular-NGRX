@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="row">
+    <div class="col-6">
+      <form (ngSubmit)="submitForm()" [formGroup]="loginForm">
+        <div class="form-group mb-2">
+            <label for="email">Email</label>
+            <input type="text" name="" id="email" class="form-control" formControlName="email">
+        </div>
+        <div class="form-group mb-2">
+            <label for="password">Password</label>
+            <input type="text" name="" id="password" class="form-control" formControlName="password">
+        </div>
+        <div>
+            <button class="btn btn-sm btn-success" type="submit">Login</button>
+            <br>
+            <a [routerLink]="['/regi']">Go to registar page</a>
+        </div>
+      </form>
+    </div>
+</div>
