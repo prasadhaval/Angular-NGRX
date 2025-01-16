@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
+import { LoaderSelector } from './component/dashbord/loader/store/loader.selector';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +9,13 @@ import { Component } from '@angular/core';
   standalone: false,
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title = 'counterNGRX-1';
+export class AppComponent implements OnInit {
+
+  isLoader! : Observable<boolean>
+
+  private store = inject(Store)
+
+  ngOnInit(): void {
+    this.isLoader = this.store.select(LoaderSelector)
+  }
 }

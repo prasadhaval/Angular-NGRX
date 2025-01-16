@@ -14,6 +14,13 @@ import { RegistarComponent } from './component/registar/registar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { isDevMode } from '@angular/core';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { appState } from './component/store/app.state';
+import { EffectsModule } from '@ngrx/effects';
+import { SignUpEffects } from './component/registar/store/registar.effects';
+import { LoaderComponent } from './component/dashbord/loader/loader.component';
+import { LoginEffects } from './component/login/store/login.effects';
 
 @NgModule({
   declarations: [
@@ -25,13 +32,16 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
     ServiceComponent,
     HeaderComponent,
     LoginComponent,
-    RegistarComponent
+    RegistarComponent,
+    LoaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
     FormsModule,
+    StoreModule.forRoot(appState),
+    EffectsModule.forRoot([SignUpEffects , LoginEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode
@@ -40,6 +50,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
       traceLimit: 75, // maximum stack trace frames to be stored (in case trace option was provided as true)
       connectInZone: true // If set to true, the connection is established within the Angular zone
     }),
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

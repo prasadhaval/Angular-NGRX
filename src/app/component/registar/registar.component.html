@@ -1,3 +1,6 @@
+<div class="alert alert-dark" role="alert" *ngIf="isError | async as error">
+    {{error}}
+  </div>
 <div class="row">
     <div class="col-6">
         <form (ngSubmit)="submitForm()" [formGroup]="regiForm">
