@@ -7,6 +7,8 @@ import { AboutComponent } from './component/dashbord/about/about.component';
 import { ServiceComponent } from './component/dashbord/service/service.component';
 import { ContactComponent } from './component/dashbord/contact/contact.component';
 import { RegistarComponent } from './component/registar/registar.component';
+import { PostComponent } from './component/dashbord/home/post/post.component';
+import { UpdateComponent } from './component/dashbord/home/update/update.component';
 
 const routes: Routes = [
   {
@@ -21,7 +23,14 @@ const routes: Routes = [
   {
     path :'', component : DashbordComponent , children :[
       {
-        path :'home', component : HomeComponent
+        path :'home', component : HomeComponent , children :[
+          {
+            path :'post', component : PostComponent
+          },
+          {
+            path :'update/:id', component : UpdateComponent
+          }
+        ]
       },
       {
         path :'about', component : AboutComponent

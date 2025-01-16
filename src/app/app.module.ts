@@ -21,6 +21,9 @@ import { EffectsModule } from '@ngrx/effects';
 import { SignUpEffects } from './component/registar/store/registar.effects';
 import { LoaderComponent } from './component/dashbord/loader/loader.component';
 import { LoginEffects } from './component/login/store/login.effects';
+import { PostComponent } from './component/dashbord/home/post/post.component';
+import { UpdateComponent } from './component/dashbord/home/update/update.component';
+import { HomeEffects } from './component/dashbord/home/store/home.effects';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,9 @@ import { LoginEffects } from './component/login/store/login.effects';
     HeaderComponent,
     LoginComponent,
     RegistarComponent,
-    LoaderComponent
+    LoaderComponent,
+    PostComponent,
+    UpdateComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +46,7 @@ import { LoginEffects } from './component/login/store/login.effects';
     ReactiveFormsModule,
     FormsModule,
     StoreModule.forRoot(appState),
-    EffectsModule.forRoot([SignUpEffects , LoginEffects]),
+    EffectsModule.forRoot([SignUpEffects , LoginEffects , HomeEffects]),
     StoreDevtoolsModule.instrument({
       maxAge: 25, // Retains last 25 states
       logOnly: !isDevMode(), // Restrict extension to log-only mode

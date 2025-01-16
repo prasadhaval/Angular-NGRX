@@ -1,0 +1,21 @@
+<form [formGroup]="UpdateForm" (ngSubmit)="submitPost()">
+    <div class="form-group mb-2">
+        <label for="firstName">First Name</label>
+        <input type="text" name="" id="firstName" class="form-control" formControlName="firstName">
+    </div>
+    <div class="form-group mb-2">
+        <label for="lastName">Last Name</label>
+        <input type="text" name="" id="lastName" class="form-control" formControlName="lastName">
+    </div>
+    <div class="form-group mb-2">
+        <label for="email">Email</label>
+        <input type="text" name="" id="email" class="form-control" formControlName="email">
+    </div>
+    <div class="form-group mb-2">
+        <label for="contact">Contact</label>
+        <input type="text" name="" id="contact" class="form-control" formControlName="contact">
+    </div>
+    <div class="form-group">
+        <button class="btn btn-sm btn-success">UPdate</button>
+    </div>
+</form>
